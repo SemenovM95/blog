@@ -1,0 +1,18 @@
+@import "typography";
+
+@mixin centered {
+  @media (min-width: $maxContentWidth) {
+    padding: 0 max(calc((100vw - $maxContentWidth) / 2), 20px);
+  }
+}
+@mixin line-limit($limit) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $limit;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+@mixin shadow {
+  box-shadow: 0 4px 12px 0 rgba(0,0,0, .15);
+}

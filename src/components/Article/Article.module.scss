@@ -1,0 +1,125 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: 140px;
+  max-height: 140px;
+  padding: 16px 16px 24px 16px;
+  background-color: color("white");
+  border-radius: 5px;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0, .15);
+  &--fullSize {
+    min-height: 800px;
+    max-height: unset;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__author {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    &-data {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    &-username {
+      @include h6;
+    }
+    &-date {
+      @include text-sm;
+      color: color('textSecondary');
+    }
+    &-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+    }
+  }
+  &__actions {
+    margin-top: 24px;
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    justify-content: space-between;
+    &__action {
+      @include text-md;
+      display: flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 24px;
+      border: 1px solid;
+      border-radius: 4px;
+      transition: all .15s linear;
+    }
+    &__edit {
+      border-color: color('success');
+      color: color('success');
+      &:hover {
+        background-color: color('success');
+        color: color('white');
+      }
+      &:visited {
+        color: color('success');
+        &:hover {
+          color: color('white');
+        }
+      }
+    }
+    &__delete {
+      border-color: color('error');
+      color: color('error');
+      &:hover {
+        background-color: color('error');
+        color: color('white');
+      }
+    }
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "title rating" "tags tags" "description description";
+    align-items: baseline;
+    row-gap: 4px;
+    column-gap: 12px;
+    max-width: 75%;
+    overflow: hidden;
+  }
+  &__rating {
+    @include text-sm;
+    grid-area: rating;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  &__title {
+    @include h5;
+    @include line-limit(1);
+    color: color("primary");
+    grid-area: title;
+  }
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    grid-area: tags;
+    max-height: 24px;
+    overflow: hidden;
+  }
+  &__tag {
+    @include text-sm;
+    @include line-limit(1);
+    border: 1px solid color('black');
+    border-radius: 4px;
+    padding: 0 6px;
+    max-height: 24px;
+    max-width: 120px;
+  }
+  &__description {
+    @include text-sm;
+    @include line-limit(2);
+    grid-area: description;
+  }
+}

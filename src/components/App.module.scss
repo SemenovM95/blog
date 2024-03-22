@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: color("backgroundMain");
+  width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  color: color("black");
+}
+
+

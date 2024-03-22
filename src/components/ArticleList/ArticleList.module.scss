@@ -1,0 +1,18 @@
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  align-items: center;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+  }
+  &__pagination {
+    width: max-content;
+    max-width: 100%;
+  }
+}

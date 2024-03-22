@@ -1,0 +1,23 @@
+.register {
+  @include shadow;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  width: 384px;
+  padding: 48px 32px;
+  margin: 0 auto;
+  background-color: color('white');
+  border: 1px solid color('lightGray');
+  border-radius: 6px;
+  &__sign-up {
+    @include text-sm;
+    margin-top: 8px;
+    text-align: center;
+    color: color('gray');
+    & > a {
+      color: color('primary');
+      &:visited {
+          color: color('primary');
+      }
+    }
+  }
+}

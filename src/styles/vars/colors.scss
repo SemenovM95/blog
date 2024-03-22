@@ -1,0 +1,21 @@
+$colors: (
+    "white": #fff,
+    "black": #000,
+    "backgroundMain": #EBEEF3,
+    "blueMain": #1890FF,
+    "primary": #1890FF,
+    "info": #1890FF,
+    "success": #52C41A,
+    "error": #F5222D,
+    "warning": #FAAD14,
+    "text": rgba(0, 0, 0, 0.75),
+    "textSecondary": rgba(0, 0, 0, 0.5),
+    "disabled": rgba(0, 0, 0, 0.35),
+    "divider": rgba(0, 0, 0, 0.09),
+    "lightGray": rgb(217, 217, 217),
+    'gray': rgb(140, 140, 140),
+);
+
+@function color($key) {
+  @return map-get($colors, $key);
+}

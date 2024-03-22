@@ -1,0 +1,36 @@
+.profile {
+  @include shadow;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  width: 384px;
+  padding: 48px 32px;
+  margin: 0 auto;
+  background-color: color('white');
+  border: 1px solid color('lightGray');
+  border-radius: 6px;
+  &__title {
+    @include h5;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 32px;
+
+  }
+  &__error {
+    @include text-sm;
+    color: color('error');
+  }
+  &__button {
+    @include text-lg;
+    color: color('white');
+    background-color: color('primary');
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+  }
+}
