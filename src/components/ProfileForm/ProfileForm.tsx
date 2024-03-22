@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { useLazyGetCurrentUserQuery, useUpdateCurrentUserMutation } from 'src/services/RWBService.ts'
+import { api } from 'src/services/RWBService.ts'
 import Form from 'components/ui/Form.tsx'
 import Input from 'components/ui/Input.tsx'
 import useAuth from 'src/hooks/useAuth.tsx'
@@ -19,8 +19,8 @@ interface ProfileFormFields {
 export default function ProfileForm() {
   const { getToken, isAuth } = useAuth()
   const [updateUserError, setUpdateUserError] = useState<string | false>(false)
-  const [getUserdata, { data: userData, isFetching: isGettingUserData }] = useLazyGetCurrentUserQuery()
-  const [updateUser, { isLoading: isUpdatingUser }] = useUpdateCurrentUserMutation()
+  const [getUserdata, { data: userData, isFetching: isGettingUserData }] = api.useLazyGetCurrentUserQuery()
+  const [updateUser, { isLoading: isUpdatingUser }] = api.useUpdateCurrentUserMutation()
   const {
     handleSubmit,
     register,

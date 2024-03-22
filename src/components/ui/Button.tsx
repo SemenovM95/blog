@@ -7,6 +7,7 @@ interface ButtonProps {
 
 const Button = forwardRef(({ children, type, ...props }: ButtonProps, ref) => {
   return (
+    // @ts-ignore
     <button type="button" ref={ref} {...props}>
       {children}
     </button>

@@ -3,12 +3,7 @@ import { Pagination } from 'antd'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
 import Article from 'src/components/Article/Article.tsx'
-import {
-  useGetArticlesPageQuery,
-  postLimit,
-  ArticleType,
-  useLazyGetFavoritedArticlesQuery,
-} from 'src/services/RWBService.ts'
+import { postLimit, ArticleType, api } from 'src/services/RWBService.ts'
 import Spinner from 'components/ui/Spinner.tsx'
 import useAuth from 'src/hooks/useAuth.tsx'
 
@@ -19,9 +14,9 @@ function ArticleList() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const page = Number(searchParams.get('page'))
-  const { data, isLoading } = useGetArticlesPageQuery(page)
+  const { data, isLoading } = api.useGetArticlesPageQuery(page)
   const [getFavoritedArticles, { data: favoritedArticles, isLoading: isLoadingFavorited }] =
-    useLazyGetFavoritedArticlesQuery()
+    api.useLazyGetFavoritedArticlesQuery()
 
   const onPageChange = (newPage: number) => {
     navigate(`/articles?page=${newPage}`)

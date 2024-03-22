@@ -3,14 +3,8 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Popconfirm } from 'antd'
 
-import {
-  useGetArticleQuery,
-  ArticleType,
-  useDeleteArticleMutation,
-  useFavoriteArticleMutation,
-  useUnfavoriteArticleMutation,
-} from 'src/services/RWBService.ts'
-import { formatDate } from 'src/utils/helpers.ts'
+import { ArticleType, api } from 'src/services/RWBService.ts'
+import formatDate from 'src/utils/helpers.ts'
 import useAuth from 'src/hooks/useAuth.tsx'
 
 import type { ArticleProps } from './Article.d'
@@ -19,9 +13,9 @@ import style from './Article.module.scss'
 export default function Article({ article, fullSize }: ArticleProps) {
   const navigate = useNavigate()
   const { isAuth, user } = useAuth()
-  const [deleteArticle] = useDeleteArticleMutation()
-  const [favoriteArticle] = useFavoriteArticleMutation()
-  const [unfavoriteArticle] = useUnfavoriteArticleMutation()
+  const [deleteArticle] = api.useDeleteArticleMutation()
+  const [favoriteArticle] = api.useFavoriteArticleMutation()
+  const [unfavoriteArticle] = api.useUnfavoriteArticleMutation()
   const renderArticle = (data: ArticleType) => {
     const {
       title,
@@ -106,7 +100,7 @@ export default function Article({ article, fullSize }: ArticleProps) {
 
   if (fullSize) {
     const { id } = useParams()
-    const { data, isLoading } = useGetArticleQuery(id as string)
+    const { data, isLoading } = api.useGetArticleQuery(id as string)
     if (isLoading || !data) return <p>Loading...</p>
     return (
       <div className={`${style.article} ${style.articleFullSize}`}>

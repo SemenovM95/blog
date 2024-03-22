@@ -1,7 +1,7 @@
 import { useState, useCallback, createContext, useContext, ReactNode, useLayoutEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useLoginMutation, UserData, AuthData, useLazyGetCurrentUserQuery } from 'src/services/RWBService.ts'
+import { UserData, AuthData, api } from 'src/services/RWBService.ts'
 
 const authData = () => {
   const navigate = useNavigate()
@@ -9,8 +9,8 @@ const authData = () => {
   const [authError, setAuthError] = useState<string | false>(false)
   const [user, setUser] = useState<UserData | null>(null)
 
-  const [userLogin, { isLoading: isLoadingLogin }] = useLoginMutation()
-  const [getUserData, { isLoading: isLoadingUser }] = useLazyGetCurrentUserQuery()
+  const [userLogin, { isLoading: isLoadingLogin }] = api.useLoginMutation()
+  const [getUserData, { isLoading: isLoadingUser }] = api.useLazyGetCurrentUserQuery()
 
   const loginUser = async (data: AuthData): Promise<boolean> => {
     setIsAuth(false)
