@@ -1,4 +1,4 @@
-export const formatDate = (date: string) => {
+const formatDate = (date: string) => {
   const dateObj = new Date(date)
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
@@ -7,3 +7,5 @@ export const formatDate = (date: string) => {
   }
   return dateObj.toLocaleDateString('en-US', options)
 }
+
+export default formatDate

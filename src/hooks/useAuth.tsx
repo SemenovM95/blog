@@ -50,9 +50,7 @@ const authData = () => {
       getUserData(findToken)
         .unwrap()
         .then((res) => setUser(() => res))
-        .then(() => console.log('user:', user))
     }
-    console.log('from context: ', isAuth)
   }, [])
 
   return { logout, loginUser, getToken, isAuth, isLoadingLogin, authError, user, isLoadingUser }
@@ -61,6 +59,7 @@ const authData = () => {
 interface AuthContextProps {
   isAuth: boolean
   authError: string | false
+  // eslint-disable-next-line no-unused-vars
   loginUser: (data: AuthData) => Promise<boolean>
   logout: () => void
   getToken: () => string | null

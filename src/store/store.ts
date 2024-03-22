@@ -2,11 +2,10 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 import { articlesSlice } from 'src/slices/postSlice.ts'
-import { api, api } from 'src/services/RWBService.ts'
+import { api } from 'src/services/RWBService.ts'
 
 const rootReducer = combineReducers({
   articles: articlesSlice.reducer,
-  [api.reducerPath]: api.reducer,
   [api.reducerPath]: api.reducer,
 })
 

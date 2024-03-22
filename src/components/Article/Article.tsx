@@ -44,16 +44,8 @@ export default function Article({ article, fullSize }: ArticleProps) {
 
     const onArticleFavorite = () => {
       if (!isAuth || !user?.token) return
-      if (favorited)
-        unfavoriteArticle({ slug, token: user?.token })
-          .unwrap()
-          .then((res) => console.log(res))
-          .catch((err) => console.error(err))
-      else
-        favoriteArticle({ slug, token: user?.token })
-          .unwrap()
-          .then((res) => console.log(res))
-          .catch((err) => console.error(err))
+      if (favorited) unfavoriteArticle({ slug, token: user?.token })
+      else favoriteArticle({ slug, token: user?.token })
     }
 
     return (
