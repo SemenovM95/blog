@@ -219,20 +219,4 @@ export const api = createApi({
   }),
 })
 
-// TODO: fix types
-export const {
-  useGetArticleQuery,
-  useLazyGetArticleQuery,
-  useGetArticlesPageQuery,
-  useLazyGetFavoritedArticlesQuery,
-  useFavoriteArticleMutation,
-  useUnfavoriteArticleMutation,
-  useLoginMutation,
-  useRegisterMutation,
-  useLazyGetCurrentUserQuery,
-  useGetCurrentUserQuery,
-  useUpdateCurrentUserMutation,
-  useCreateArticleMutation,
-  useEditArticleMutation,
-  useDeleteArticleMutation,
-} = api
+export default api

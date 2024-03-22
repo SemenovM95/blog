@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { useRegisterMutation } from 'src/services/RWBService.ts'
+import { api } from 'src/services/RWBService.ts'
 import Form, { FormFieldProps } from 'components/ui/Form.tsx'
 
 import styles from './RegisterForm.module.scss'
@@ -23,7 +23,7 @@ export default function RegisterForm() {
     formState: { errors },
     watch,
   } = useForm<RegisterFormInputs>({ mode: 'onSubmit', reValidateMode: 'onChange' })
-  const [signUp, { isLoading }] = useRegisterMutation()
+  const [signUp, { isLoading }] = api.useRegisterMutation()
   const [regError, setRegError] = useState<string | false>(false)
 
   const onSubmit: SubmitHandler<RegisterFormInputs> = async (data) => {

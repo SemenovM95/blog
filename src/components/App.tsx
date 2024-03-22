@@ -8,6 +8,7 @@ import styles from './App.module.scss'
 function App() {
   return (
     <div className={styles.App}>
+      {/* @ts-ignore */}
       <RouterProvider router={router}>
         <ScrollRestoration />
       </RouterProvider>

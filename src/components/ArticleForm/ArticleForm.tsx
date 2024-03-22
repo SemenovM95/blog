@@ -2,7 +2,7 @@ import { useForm, SubmitHandler, useFieldArray } from 'react-hook-form'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
-import { useCreateArticleMutation, useEditArticleMutation, useGetArticleQuery } from 'src/services/RWBService.ts'
+import api from 'src/services/RWBService.ts'
 import Form from 'components/ui/Form.tsx'
 import Input from 'components/ui/Input.tsx'
 import useAuth from 'src/hooks/useAuth.tsx'
@@ -27,9 +27,10 @@ export default function ArticleForm({ isEditing }: ArticleFormData) {
   const navigate = useNavigate()
   const { slug } = useParams()
   const { getToken, user } = useAuth()
-  const [createArticle, { isLoading: isLoadingCreate }] = useCreateArticleMutation()
-  const [updateArticle, { isLoading: isLoadingUpdate }] = useEditArticleMutation()
-  const { data: articleData, isLoading: isLoadingArticle } = useGetArticleQuery(slug, { skip: !isEditing })
+  const [createArticle, { isLoading: isLoadingCreate }] = api.useCreateArticleMutation()
+  const [updateArticle, { isLoading: isLoadingUpdate }] = api.useEditArticleMutation()
+  // @ts-ignore
+  const { data: articleData, isLoading: isLoadingArticle } = api.useGetArticleQuery(slug, { skip: !isEditing })
 
   const {
     control,
