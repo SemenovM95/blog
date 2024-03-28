@@ -185,6 +185,7 @@ export const api = createApi({
       transformErrorResponse: (response: ErrorData) => {
         return response.data.errors
       },
+      invalidatesTags: ['Articles'],
     }),
     editArticle: builder.mutation<
       ArticleType,
